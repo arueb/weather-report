@@ -116,23 +116,19 @@ footer.bg-light {
   .low {
     font-size: 0.8em;
     &.alert-day {
-    //   color: $alertFont;
+      margin-top: 3px;
     }
   }
   &:hover {
     background-color: $hover;
   }
-  .high {
-    &.alert-day {
-    //   color: $alertFont;
-    }
-  }
   .alert-day {
     color: $alertFont;
-    background-color: rgba(255,255,255.0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
     padding: 0 3px;
     font-weight: 600;
+  }
 }
 
 .snowflake-icon {
@@ -413,6 +409,7 @@ input[type="range"]:focus::-ms-fill-upper {
       flex-grow: 1;
       svg {
         width: 20px;
+        height: 22px;
       }
       font-size: 0.85em;
     }
