@@ -19,40 +19,40 @@ class App extends React.Component {
       super(props);
   
       this.state = {
-        // dealers: [
-        //    {
-        //     "id": 63,
-        //     "name": "Mass St. Music",
-        //     "city": "Lawrence",
-        //     "state": "KS",
-        //     "shipDays": 2,
-        //     "country": "United States",
-        //     "lat": 38.9582919,
-        //     "lon": -95.236176
-        //   },
-        //   {
-        //     "id": 62,
-        //     "name": "Chicago Music Exchange",
-        //     "city": "Chicago",
-        //     "state": "IL",
-        //     "shipDays": 2,
-        //     "country": "United States",
-        //     "lat": 41.9420522,
-        //     "lon": -87.6705805
-        //   },
-        //   {
-        //     "id": 64,
-        //     "name": "The Music Emporium",
-        //     "city": "Lexington",
-        //     "state": "MA",
-        //     "shipDays": 3,
-        //     "country": "United States",
-        //     "lat": 42.4262892,
-        //     "lon": -71.1956382
-        //   }
-        // ],
-        dealers: dealerJSON,
-        isLoading: false,
+        dealers: [
+           {
+            "id": 63,
+            "name": "Mass St. Music",
+            "city": "Lawrence",
+            "state": "KS",
+            "shipDays": 2,
+            "country": "United States",
+            "lat": 38.9582919,
+            "lon": -95.236176
+          },
+          {
+            "id": 62,
+            "name": "Chicago Music Exchange",
+            "city": "Chicago",
+            "state": "IL",
+            "shipDays": 2,
+            "country": "United States",
+            "lat": 41.9420522,
+            "lon": -87.6705805
+          },
+          {
+            "id": 64,
+            "name": "The Music Emporium",
+            "city": "Lexington",
+            "state": "MA",
+            "shipDays": 3,
+            "country": "United States",
+            "lat": 42.4262892,
+            "lon": -71.1956382
+          }
+        ],
+        // dealers: dealerJSON,
+        isLoading: true,
         forecasts: [],
         filter:'',
         minHighTemp: 32,
@@ -64,6 +64,10 @@ class App extends React.Component {
         showIntlDealers: false,
         expandSettings: false
       };
+    }
+
+    componentDidMount(){
+        this.fetchWeatherAll();
     }
   
   
@@ -77,8 +81,11 @@ class App extends React.Component {
       console.log('set loading to true')
       this.setState({isLoading: true});
       let promises = [];
-      const { dealers } = this.state;
-     
+      let { dealers } = this.state;
+      if (!this.state.showIntlDealers){
+        dealers = dealers.filter((forecast)=>forecast.country === "United States");
+        // alertDealers = alertDealers.filter((forecast)=> forecast.country === "United States");
+      }  
   
       dealers.forEach((dealer) => {
         promises.push(

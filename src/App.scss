@@ -8,8 +8,7 @@ $lightShade: rgba(0, 0, 0, 0.12);
 $forecastRow: rgba(255, 255, 255, 0.1);
 $fonts: white;
 $borders: rgba(255, 255, 255, 0.2);
-$alertRow: rgba(255, 255, 255, 0.2);
-$alertFont: rgba(229, 2, 2, 1);
+$alertRow: rgba(255, 255, 255, 0.15);
 $alertFont: #e25353;
 // $alertFont: #db999b;
 // $alertBorder: #ea5d5d;
@@ -156,6 +155,7 @@ footer.bg-light {
     margin-left: -5px;
     margin-right: -5px;
     li {
+      margin: 0.5em 0;
       background-color: $forecastRow;
       border-radius: $borderRadius;
       cursor: pointer;
@@ -439,6 +439,7 @@ input[type="range"]:focus::-ms-fill-upper {
     column-count: 1;
     li {
       border-radius: 0;
+      margin: 0;
     }
     li:first-child {
       border-radius: 5px 5px 0 0;
