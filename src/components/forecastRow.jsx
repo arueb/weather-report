@@ -6,13 +6,13 @@ const ForecastRow = ( { idx, forecast, minHighTemp, minLowTemp, maxTemp, daysBef
     const classList = isWeatherAlert(forecast, minHighTemp, minLowTemp, maxTemp, daysBefore, daysAfter) ? "forecast-row weather-alert" : "forecast-row"
     
     return(
-      <div className={classList}>
+      <div className={classList} key={idx}>
         <div className="dealer-name">{forecast.dealer}
           <div className="location">{forecast.city}, {forecast.state}</div>
         </div>
         {
           forecast.daily.map((dayForecast, idx)=>(
-            <ForecastDay 
+            <ForecastDay   
               dayForecast={dayForecast} 
               dayNum={idx} 
               shipDays={forecast.shipDays} 

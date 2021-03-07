@@ -15,7 +15,7 @@ const ForecastDay = ({ dayForecast, dayNum, shipDays, minHighTemp, minLowTemp, m
     if (dayNum === shipDays) {dayClass = "forecast-day arriving";}
     
     return(
-      <div className={dayClass}>
+      <div className={dayClass} key={dayNum}>
         <p>{moment().add(dayNum, 'd').format('ddd')}</p>
         <WeatherIcon desc={dayForecast.weather[0].main}/>       
         <div className="temps">

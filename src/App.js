@@ -159,7 +159,6 @@ class App extends React.Component {
         alertDealers = alertDealers.filter((forecast)=> forecast.country === "United States");
       }  
       
-      console.log(process.env.REACT_APP_WEATHER_API_KEY);
       return (
         <React.Fragment>
         <div className="container-sm">
