@@ -4,7 +4,6 @@
 // $lightShade: rgba(0,0,0,.25);
 $darkShade: rgba(255, 255, 255, 0.3);
 $lightShade: rgba(255, 255, 255, 0.15);
-
 $forecastRow: rgba(255, 255, 255, 0.1);
 $fonts: white;
 $borders: rgba(255, 255, 255, 0.2);
@@ -117,7 +116,7 @@ footer.bg-light {
   .low {
     font-size: 0.8em;
     &.alert-day {
-      color: $alertFont;
+    //   color: $alertFont;
     }
   }
   &:hover {
@@ -125,9 +124,15 @@ footer.bg-light {
   }
   .high {
     &.alert-day {
-      color: $alertFont;
+    //   color: $alertFont;
     }
   }
+  .alert-day {
+    color: $alertFont;
+    background-color: rgba(255,255,255.0.8);
+    border-radius: 5px;
+    padding: 0 3px;
+    font-weight: 600;
 }
 
 .snowflake-icon {

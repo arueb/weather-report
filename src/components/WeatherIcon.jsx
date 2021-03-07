@@ -9,9 +9,11 @@ const WeatherIcon = ({desc}) => {
          return <WiDaySunny size={35}/>
       case "Clouds":
          return <WiCloudy size={35}/>
-      case "Snow":
+    case "Snow":
         return <ion-icon name="snow-outline" class="snowflake-icon"></ion-icon>
         // return <FaRegSnowflake size={19} className="snowflake-icon"/>
+    default:
+        return;
     } 
   }   
 
