@@ -19,39 +19,39 @@ class App extends React.Component {
       super(props);
   
       this.state = {
-        dealers: [
-           {
-            "id": 63,
-            "name": "Mass St. Music",
-            "city": "Lawrence",
-            "state": "KS",
-            "shipDays": 2,
-            "country": "United States",
-            "lat": 38.9582919,
-            "lon": -95.236176
-          },
-          {
-            "id": 62,
-            "name": "Chicago Music Exchange",
-            "city": "Chicago",
-            "state": "IL",
-            "shipDays": 2,
-            "country": "United States",
-            "lat": 41.9420522,
-            "lon": -87.6705805
-          },
-          {
-            "id": 64,
-            "name": "The Music Emporium",
-            "city": "Lexington",
-            "state": "MA",
-            "shipDays": 3,
-            "country": "United States",
-            "lat": 42.4262892,
-            "lon": -71.1956382
-          }
-        ],
-        // dealers: dealerJSON,
+        // dealers: [
+        //    {
+        //     "id": 63,
+        //     "name": "Mass St. Music",
+        //     "city": "Lawrence",
+        //     "state": "KS",
+        //     "shipDays": 2,
+        //     "country": "United States",
+        //     "lat": 38.9582919,
+        //     "lon": -95.236176
+        //   },
+        //   {
+        //     "id": 62,
+        //     "name": "Chicago Music Exchange",
+        //     "city": "Chicago",
+        //     "state": "IL",
+        //     "shipDays": 2,
+        //     "country": "United States",
+        //     "lat": 41.9420522,
+        //     "lon": -87.6705805
+        //   },
+        //   {
+        //     "id": 64,
+        //     "name": "The Music Emporium",
+        //     "city": "Lexington",
+        //     "state": "MA",
+        //     "shipDays": 3,
+        //     "country": "United States",
+        //     "lat": 42.4262892,
+        //     "lon": -71.1956382
+        //   }
+        // ],
+        dealers: dealerJSON,
         isLoading: false,
         forecasts: [],
         filter:'',
@@ -62,7 +62,7 @@ class App extends React.Component {
         maxTemp: 90,
         showAlertsOnly: false,
         showIntlDealers: false,
-        expandSettings: true
+        expandSettings: false
       };
     }
   
@@ -177,7 +177,7 @@ class App extends React.Component {
             
             <div id="search-filter" className="collapse">
               <Input 
-                value={this.state.filter} 
+                value={filter} 
                 onChange={this.handleFilter} 
                 id="search-box"
                 label="Filter by Dealer Name"
@@ -199,7 +199,7 @@ class App extends React.Component {
               <div className="col-sm-8">
                 <RangeSlider 
                   label="Min High Temp"
-                  value={this.state.minHighTemp} 
+                  value={minHighTemp} 
                   onChange={this.handleRangeSliderChange}
                   stateProp="minHighTemp"
                   min={0}
@@ -207,7 +207,7 @@ class App extends React.Component {
                 />
                 <RangeSlider 
                   label="Min Low Temp"
-                  value={this.state.minLowTemp} 
+                  value={minLowTemp} 
                   onChange={this.handleRangeSliderChange}
                   stateProp="minLowTemp"
                   min={0}
@@ -223,7 +223,7 @@ class App extends React.Component {
                 /> 
                 <RangeSlider 
                   label="Days Before"
-                  value={this.state.daysBefore} 
+                  value={daysBefore} 
                   onChange={this.handleRangeSliderChange}
                   stateProp="daysBefore"
                   min={0}
@@ -231,7 +231,7 @@ class App extends React.Component {
                 />
                 <RangeSlider 
                   label="Days After"
-                  value={this.state.daysAfter} 
+                  value={daysAfter} 
                   onChange={this.handleRangeSliderChange}
                   stateProp="daysAfter"
                   min={0}
