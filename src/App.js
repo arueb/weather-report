@@ -1,5 +1,6 @@
 import React  from 'react';
 import axios from 'axios';
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import Footer from './components/footer';
 import Input from './components/common/input';
 import Button from './components/common/button';
@@ -14,44 +15,45 @@ import './App.scss';
 import {dealerJSON} from './dealers.js';
 import {isWeatherAlert} from './services/forecastService';
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
+
 class App extends React.Component {
     constructor(props) {
       super(props);
   
       this.state = {
-        dealers: [
-           {
-            "id": 63,
-            "name": "Mass St. Music",
-            "city": "Lawrence",
-            "state": "KS",
-            "shipDays": 2,
-            "country": "United States",
-            "lat": 38.9582919,
-            "lon": -95.236176
-          },
-          {
-            "id": 62,
-            "name": "Chicago Music Exchange",
-            "city": "Chicago",
-            "state": "IL",
-            "shipDays": 2,
-            "country": "United States",
-            "lat": 41.9420522,
-            "lon": -87.6705805
-          },
-          {
-            "id": 64,
-            "name": "The Music Emporium",
-            "city": "Lexington",
-            "state": "MA",
-            "shipDays": 3,
-            "country": "United States",
-            "lat": 42.4262892,
-            "lon": -71.1956382
-          }
-        ],
-        // dealers: dealerJSON,
+        // dealers: [
+        //    {
+        //     "id": 63,
+        //     "name": "Mass St. Music",
+        //     "city": "Lawrence",
+        //     "state": "KS",
+        //     "shipDays": 2,
+        //     "country": "United States",
+        //     "lat": 38.9582919,
+        //     "lon": -95.236176
+        //   },
+        //   {
+        //     "id": 62,
+        //     "name": "Chicago Music Exchange",
+        //     "city": "Chicago",
+        //     "state": "IL",
+        //     "shipDays": 2,
+        //     "country": "United States",
+        //     "lat": 41.9420522,
+        //     "lon": -87.6705805
+        //   },
+        //   {
+        //     "id": 64,
+        //     "name": "The Music Emporium",
+        //     "city": "Lexington",
+        //     "state": "MA",
+        //     "shipDays": 3,
+        //     "country": "United States",
+        //     "lat": 42.4262892,
+        //     "lon": -71.1956382
+        //   }
+        // ],
+        dealers: dealerJSON,
         isLoading: true,
         forecasts: [],
         filter:'',
@@ -274,10 +276,13 @@ class App extends React.Component {
             <ul>
               {
                 alertDealers && alertDealers.map(dealer => (
-                  <li onClick={this.handleAlertClick}
+                    
+                  <li 
                     className={dealer.dealer === filter ? "selected" : ""}
                   >
-                      <span>{dealer.dealer}</span></li>
+                      <Link smooth={true} duration={200} to="forecasts" onClick={this.handleAlertClick}>
+                      <span>{dealer.dealer}</span>
+                      </Link></li>
                 ))
               }
             </ul>
