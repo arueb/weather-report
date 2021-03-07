@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playball&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap");
-// $darkShade: rgba(0,0,0,.5);
-// $lightShade: rgba(0,0,0,.25);
-$darkShade: rgba(255, 255, 255, 0.3);
-$lightShade: rgba(255, 255, 255, 0.15);
+$darkShade: rgba(0, 0, 0, 0.3);
+$lightShade: rgba(0, 0, 0, 0.12);
+// $alertShade: rgba(255, 255, 255, 0.1);
+// $darkShade: rgba(255, 255, 255, 0.3);
+// $lightShade: rgba(255, 255, 255, 0.15);
 $forecastRow: rgba(255, 255, 255, 0.1);
 $fonts: white;
 $borders: rgba(255, 255, 255, 0.2);
@@ -14,6 +15,7 @@ $alertFont: #e25353;
 // $alertBorder: #ea5d5d;
 $alertBorder: #e25353;
 $hover: rgba(255, 255, 255, 0.2);
+$alertHover: rgba(0, 0, 0, 0.3);
 $borderRadius: 5px;
 
 html,
@@ -120,7 +122,7 @@ footer.bg-light {
     }
   }
   &:hover {
-    background-color: $hover;
+    background-color: $alertHover;
   }
   .alert-day {
     color: $alertFont;
@@ -128,6 +130,12 @@ footer.bg-light {
     border-radius: 5px;
     padding: 0 3px;
     font-weight: 600;
+  }
+  .temps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -148,11 +156,11 @@ footer.bg-light {
     margin-left: -5px;
     margin-right: -5px;
     li {
-      background-color: $lightShade;
+      background-color: $forecastRow;
       border-radius: $borderRadius;
       cursor: pointer;
       &:hover {
-        background-color: $hover;
+        background-color: $lightShade;
       }
       span {
         margin: 5px 15px;
