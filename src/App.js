@@ -268,7 +268,10 @@ class App extends React.Component {
             <ul>
               {
                 alertDealers && alertDealers.map(dealer => (
-                  <li onClick={this.handleAlertClick}><span>{dealer.dealer}</span></li>
+                  <li onClick={this.handleAlertClick}
+                    className={dealer.dealer === filter ? "selected" : ""}
+                  >
+                      <span>{dealer.dealer}</span></li>
                 ))
               }
             </ul>
