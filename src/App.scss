@@ -116,12 +116,8 @@ footer.bg-light {
   }
   .low {
     font-size: 0.8em;
-    &.alert-day {
-      margin-top: 3px;
-    }
-  }
-  &:hover {
-    background-color: $alertHover;
+    margin-top: 3px;
+    margin-bottom: 2px;
   }
   .alert-day {
     color: $alertFont;
@@ -155,16 +151,14 @@ footer.bg-light {
     margin-left: -5px;
     margin-right: -5px;
     li {
-      margin: 0.5em 0;
+      margin-bottom: 10px;
       background-color: $forecastRow;
       border-radius: $borderRadius;
       cursor: pointer;
-      &:hover {
-        background-color: $lightShade;
-      }
       span {
-        margin: 5px 15px;
+        padding: 5px 15px;
         display: inline-block;
+        width: 100%;
       }
       &.selected {
         background-color: $lightShade;
@@ -423,6 +417,9 @@ input[type="range"]:focus::-ms-fill-upper {
         height: 22px;
       }
       font-size: 0.85em;
+      .high {
+        margin-top: 3px;
+      }
     }
     :nth-child(2) {
       border-left: none;
@@ -447,5 +444,14 @@ input[type="range"]:focus::-ms-fill-upper {
     li:last-child {
       border-radius: 0 0 5px 5px;
     }
+  }
+}
+@media all and (min-width: 801px) {
+  #weather-alerts ul li:hover {
+    background-color: $lightShade;
+  }
+
+  .forecast-day:hover {
+    background-color: $hover;
   }
 }

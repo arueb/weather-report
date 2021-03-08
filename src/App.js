@@ -21,39 +21,49 @@ class App extends React.Component {
       super(props);
   
       this.state = {
-        // dealers: [
-        //    {
-        //     "id": 63,
-        //     "name": "Mass St. Music",
-        //     "city": "Lawrence",
-        //     "state": "KS",
-        //     "shipDays": 2,
-        //     "country": "United States",
-        //     "lat": 38.9582919,
-        //     "lon": -95.236176
-        //   },
-        //   {
-        //     "id": 62,
-        //     "name": "Chicago Music Exchange",
-        //     "city": "Chicago",
-        //     "state": "IL",
-        //     "shipDays": 2,
-        //     "country": "United States",
-        //     "lat": 41.9420522,
-        //     "lon": -87.6705805
-        //   },
-        //   {
-        //     "id": 64,
-        //     "name": "The Music Emporium",
-        //     "city": "Lexington",
-        //     "state": "MA",
-        //     "shipDays": 3,
-        //     "country": "United States",
-        //     "lat": 42.4262892,
-        //     "lon": -71.1956382
-        //   }
-        // ],
-        dealers: dealerJSON,
+        dealers: [
+           {
+            "id": 63,
+            "name": "Mass St. Music",
+            "city": "Lawrence",
+            "state": "KS",
+            "shipDays": 2,
+            "country": "United States",
+            "lat": 38.9582919,
+            "lon": -95.236176
+          },
+          {
+            "id": 62,
+            "name": "Chicago Music Exchange",
+            "city": "Chicago",
+            "state": "IL",
+            "shipDays": 2,
+            "country": "United States",
+            "lat": 41.9420522,
+            "lon": -87.6705805
+          },
+          {
+            "id": 65,
+            "name": "Elderly Instruments",
+            "city": "Lansing",
+            "state": "MI",
+            "shipDays": 3,
+            "country": "United States",
+            "lat": 42.74628,
+            "lon": -84.5516499
+          },
+          {
+            "id": 64,
+            "name": "The Music Emporium",
+            "city": "Lexington",
+            "state": "MA",
+            "shipDays": 3,
+            "country": "United States",
+            "lat": 42.4262892,
+            "lon": -71.1956382
+          }
+        ],
+        // dealers: dealerJSON,
         isLoading: true,
         forecasts: [],
         filter:'',
@@ -272,7 +282,7 @@ class App extends React.Component {
           { (alertDealers.length > 0 || filtered[0] === filter) && (
             <section id="weather-alerts">
             
-            <h4>My Alerts</h4>
+            <h4>Today's Alerts</h4>
             <ul>
               {
                 alertDealers && alertDealers.map(dealer => (

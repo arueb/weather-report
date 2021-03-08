@@ -1,5 +1,6 @@
 
 import {  WiRain, WiCloudy, WiDaySunny  } from "react-icons/wi";
+import {  IoIosSnow  } from "react-icons/io";
 
 const WeatherIcon = ({desc}) => {
     switch(desc) {
@@ -10,8 +11,7 @@ const WeatherIcon = ({desc}) => {
       case "Clouds":
          return <WiCloudy size={35}/>
     case "Snow":
-        return <ion-icon name="snow-outline" class="snowflake-icon"></ion-icon>
-        // return <FaRegSnowflake size={19} className="snowflake-icon"/>
+        return <IoIosSnow size={35}/>
     default:
         return;
     } 
