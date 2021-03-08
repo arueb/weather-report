@@ -10,6 +10,9 @@ import ForecastRow from './components/forecastRow';
 import {  BiSlider  } from "react-icons/bi";
 import {  RiRefreshLine, RiFoggyFill } from "react-icons/ri"
 import {  MdClear  } from "react-icons/md";
+import {  ImSun  } from "react-icons/im";
+import {  FaSkyatlas  } from "react-icons/fa";
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.scss';
 import {dealerJSON} from './dealers.js';
@@ -64,6 +67,7 @@ class App extends React.Component {
         //   }
         // ],
         dealers: dealerJSON,
+        // dealers:[],
         isLoading: true,
         forecasts: [],
         filter:'',
@@ -175,7 +179,7 @@ class App extends React.Component {
         <React.Fragment>
         <div className="container-sm">
           <section id="header">
-            <h1><RiFoggyFill/>Weather Report</h1>
+            <h1>Weather Report</h1>
             <div className="button-container">
               <Button 
                 onClick={this.toggleSettings} 
