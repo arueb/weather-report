@@ -68,7 +68,7 @@ class App extends React.Component {
         forecasts: [],
         filter:'',
         minHighTemp: 32,
-        minLowTemp: 20,
+        minLowTemp: 24,
         daysBefore: 1,
         daysAfter: 1,
         maxTemp: 90,
