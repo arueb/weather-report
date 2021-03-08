@@ -1,4 +1,4 @@
-const RangeSlider = ({ onChange, value, id, label, stateProp, min, max }) => {
+const RangeSlider = ({ onChange, value, id, label, stateProp, min, max, units="" }) => {
     return (
       <div className="d-flex range-group">
         <div className="range-label">
@@ -16,7 +16,7 @@ const RangeSlider = ({ onChange, value, id, label, stateProp, min, max }) => {
             />
           </div>
         <div className="range-value">
-          <span id="minHighTempValue">{value}</span>
+          <span id="minHighTempValue">{value}{units}</span>
         </div>
       </div>
     )

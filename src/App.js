@@ -8,7 +8,7 @@ import Checkbox from './components/common/checkbox';
 import RangeSlider from './components/common/rangeSlider';
 import ForecastRow from './components/forecastRow';
 import {  BiSlider  } from "react-icons/bi";
-import {  RiRefreshLine } from "react-icons/ri"
+import {  RiRefreshLine, RiFoggyFill } from "react-icons/ri"
 import {  MdClear  } from "react-icons/md";
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.scss';
@@ -175,7 +175,7 @@ class App extends React.Component {
         <React.Fragment>
         <div className="container-sm">
           <section id="header">
-            <h1>Weather Report</h1>
+            <h1><RiFoggyFill/>Weather Report</h1>
             <div className="button-container">
               <Button 
                 onClick={this.toggleSettings} 
@@ -221,7 +221,8 @@ class App extends React.Component {
                   onChange={this.handleRangeSliderChange}
                   stateProp="minHighTemp"
                   min={0}
-                  max={100}            
+                  max={100}
+                  units="&deg;"            
                 />
                 <RangeSlider 
                   label="Min Low Temp"
@@ -229,7 +230,8 @@ class App extends React.Component {
                   onChange={this.handleRangeSliderChange}
                   stateProp="minLowTemp"
                   min={0}
-                  max={100}            
+                  max={100}
+                  units="&deg;"              
                   />    
                 <RangeSlider 
                   label="Max High Temp"
@@ -237,7 +239,8 @@ class App extends React.Component {
                   onChange={this.handleRangeSliderChange}
                   stateProp="maxTemp"
                   min={0}
-                  max={100}            
+                  max={100}
+                  units="&deg;"              
                 /> 
                 <RangeSlider 
                   label="Days Before"
@@ -245,7 +248,7 @@ class App extends React.Component {
                   onChange={this.handleRangeSliderChange}
                   stateProp="daysBefore"
                   min={0}
-                  max={4}            
+                  max={4}           
                 />
                 <RangeSlider 
                   label="Days After"

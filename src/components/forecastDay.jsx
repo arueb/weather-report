@@ -20,10 +20,10 @@ const ForecastDay = ({ dayForecast, dayNum, shipDays, minHighTemp, minLowTemp, m
         <WeatherIcon desc={dayForecast.weather[0].main}/>       
         <div className="temps">
           <div className={highClass}>
-            {Math.round(dayForecast.temp.max)}
+            {Math.round(dayForecast.temp.max)}&deg;
           </div>
           <div className={lowClass}>
-            {Math.round(dayForecast.temp.min)}
+            {Math.round(dayForecast.temp.min)}&deg;
           </div>        
         </div> 
       </div>
