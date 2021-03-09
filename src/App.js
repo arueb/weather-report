@@ -24,49 +24,49 @@ class App extends React.Component {
       super(props);
   
       this.state = {
-        // dealers: [
-        //    {
-        //     "id": 63,
-        //     "name": "Mass St. Music",
-        //     "city": "Lawrence",
-        //     "state": "KS",
-        //     "shipDays": 2,
-        //     "country": "United States",
-        //     "lat": 38.9582919,
-        //     "lon": -95.236176
-        //   },
-        //   {
-        //     "id": 62,
-        //     "name": "Chicago Music Exchange",
-        //     "city": "Chicago",
-        //     "state": "IL",
-        //     "shipDays": 2,
-        //     "country": "United States",
-        //     "lat": 41.9420522,
-        //     "lon": -87.6705805
-        //   },
-        //   {
-        //     "id": 65,
-        //     "name": "Elderly Instruments",
-        //     "city": "Lansing",
-        //     "state": "MI",
-        //     "shipDays": 3,
-        //     "country": "United States",
-        //     "lat": 42.74628,
-        //     "lon": -84.5516499
-        //   },
-        //   {
-        //     "id": 64,
-        //     "name": "The Music Emporium",
-        //     "city": "Lexington",
-        //     "state": "MA",
-        //     "shipDays": 3,
-        //     "country": "United States",
-        //     "lat": 42.4262892,
-        //     "lon": -71.1956382
-        //   }
-        // ],
-        dealers: dealerJSON,
+        dealers: [
+           {
+            "id": 63,
+            "name": "Mass St. Music",
+            "city": "Lawrence",
+            "state": "KS",
+            "shipDays": 2,
+            "country": "United States",
+            "lat": 38.9582919,
+            "lon": -95.236176
+          },
+          {
+            "id": 62,
+            "name": "Chicago Music Exchange",
+            "city": "Chicago",
+            "state": "IL",
+            "shipDays": 2,
+            "country": "United States",
+            "lat": 41.9420522,
+            "lon": -87.6705805
+          },
+          {
+            "id": 65,
+            "name": "Elderly Instruments",
+            "city": "Lansing",
+            "state": "MI",
+            "shipDays": 3,
+            "country": "United States",
+            "lat": 42.74628,
+            "lon": -84.5516499
+          },
+          {
+            "id": 64,
+            "name": "The Music Emporium",
+            "city": "Lexington",
+            "state": "MA",
+            "shipDays": 3,
+            "country": "United States",
+            "lat": 42.4262892,
+            "lon": -71.1956382
+          }
+        ],
+        // dealers: dealerJSON,
         // dealers:[],
         isLoading: true,
         forecasts: [],
@@ -92,40 +92,50 @@ class App extends React.Component {
         `https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${dealer.lat}&lon=${dealer.lon}&exclude=hourly,minutely&appid=${apiKey}`;
         return axios.get(url);
     };
+
+    fetchWeatherAll = async () =>{
+        // const url =
+        // `http://localhost:5000/api/forecasts`;
+        const url = process.env.REACT_APP_WEATHER_API_URL;
+        // console.log(url);
+        const {data: forecasts} = await axios.get(url);
+        // console.log(forecasts);
+        this.setState({forecasts, isLoading: false});
+    }
   
-    fetchWeatherAll = async () => {
-      console.log('set loading to true')
-      this.setState({isLoading: true});
-      let promises = [];
-      let { dealers } = this.state;
-      if (!this.state.showIntlDealers){
-        dealers = dealers.filter((forecast)=>forecast.country === "United States");
-        // alertDealers = alertDealers.filter((forecast)=> forecast.country === "United States");
-      }  
+    // fetchWeatherAll = async () => {
+    //   console.log('set loading to true')
+    //   this.setState({isLoading: true});
+    //   let promises = [];
+    //   let { dealers } = this.state;
+    //   if (!this.state.showIntlDealers){
+    //     dealers = dealers.filter((forecast)=>forecast.country === "United States");
+    //     // alertDealers = alertDealers.filter((forecast)=> forecast.country === "United States");
+    //   }  
   
-      dealers.forEach((dealer) => {
-        promises.push(
-          this.fetchWeather(dealer)
-        );
-      });
+    //   dealers.forEach((dealer) => {
+    //     promises.push(
+    //       this.fetchWeather(dealer)
+    //     );
+    //   });
       
-      try{
-        const data = await Promise.all(promises);
+    //   try{
+    //     const data = await Promise.all(promises);
   
-        const forecasts = data.map((item,idx) => {
-          item.data.dealer = dealers[idx].name
-          item.data.shipDays = dealers[idx].shipDays;
-          item.data.country = dealers[idx].country;
-          item.data.city = dealers[idx].city;
-          item.data.state = dealers[idx].state;
-          return item.data;
-        });
-        console.log('set loading to false')    
-        this.setState({ forecasts, isLoading: false });
-      } catch(err){
-        console.log(err);
-      }
-    };
+    //     const forecasts = data.map((item,idx) => {
+    //       item.data.dealer = dealers[idx].name
+    //       item.data.shipDays = dealers[idx].shipDays;
+    //       item.data.country = dealers[idx].country;
+    //       item.data.city = dealers[idx].city;
+    //       item.data.state = dealers[idx].state;
+    //       return item.data;
+    //     });
+    //     console.log('set loading to false')    
+    //     this.setState({ forecasts, isLoading: false });
+    //   } catch(err){
+    //     console.log(err);
+    //   }
+    // };
   
     handleClick = () => {  
       this.fetchWeatherAll();
@@ -292,9 +302,9 @@ class App extends React.Component {
             <h4>Today's Alerts</h4>
             <ul>
               {
-                alertDealers && alertDealers.map(dealer => (
-                    
-                  <li 
+                alertDealers && alertDealers.map((dealer,idx) => (
+                
+                  <li  key={idx}
                     className={dealer.dealer === filter ? "selected" : ""}
                   >
                       <Link smooth={true} duration={200} to="forecasts" onClick={this.handleAlertClick}>
