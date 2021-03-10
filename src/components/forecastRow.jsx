@@ -6,7 +6,7 @@ const ForecastRow = ( { idx, forecast, minHighTemp, minLowTemp, maxTemp, daysBef
     const classList = isWeatherAlert(forecast, minHighTemp, minLowTemp, maxTemp, daysBefore, daysAfter) ? "forecast-row weather-alert" : "forecast-row"
     
     return(
-      <div key={idx} className={classList} >
+      <div key={idx.toString()} className={classList} >
         <div className="dealer-name">{forecast.dealer}
           <div className="location">{forecast.city}, {forecast.state}</div>
         </div>
@@ -21,6 +21,7 @@ const ForecastRow = ( { idx, forecast, minHighTemp, minLowTemp, maxTemp, daysBef
               maxTemp={maxTemp}
               daysBefore = {daysBefore}
               daysAfter = {daysAfter}
+              key={idx.toString()}
             />
   
           ))

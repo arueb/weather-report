@@ -1,6 +1,7 @@
 import React  from 'react';
 import axios from 'axios';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+// import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
 import Footer from './components/footer';
 import Input from './components/common/input';
 import Button from './components/common/button';
@@ -8,14 +9,13 @@ import Checkbox from './components/common/checkbox';
 import RangeSlider from './components/common/rangeSlider';
 import ForecastRow from './components/forecastRow';
 import {  BiSlider  } from "react-icons/bi";
-import {  RiRefreshLine, RiFoggyFill } from "react-icons/ri"
+import {  RiRefreshLine } from "react-icons/ri"
 import {  MdClear  } from "react-icons/md";
-import {  ImSun  } from "react-icons/im";
-import {  FaSkyatlas  } from "react-icons/fa";
+
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.scss';
-import {dealerJSON} from './dealers.js';
+// import {dealerJSON} from './dealers.js';
 import {isWeatherAlert} from './services/forecastService';
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -82,7 +82,7 @@ class App extends React.Component {
       };
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         this.fetchWeatherAll();
     }
   
@@ -304,7 +304,7 @@ class App extends React.Component {
               {
                 alertDealers && alertDealers.map((dealer,idx) => (
                 
-                  <li  key={idx}
+                  <li  key={idx.toString()}
                     className={dealer.dealer === filter ? "selected" : ""}
                   >
                       <Link smooth={true} duration={200} to="forecasts" onClick={this.handleAlertClick}>
@@ -327,6 +327,7 @@ class App extends React.Component {
                 maxTemp={maxTemp}
                 daysBefore={daysBefore}
                 daysAfter={daysAfter}
+                key={idx.toString()}
               />
               ))
             }
