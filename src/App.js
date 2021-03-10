@@ -138,7 +138,12 @@ class App extends React.Component {
     // };
   
     handleClick = () => {  
-      this.fetchWeatherAll();
+      this.setState({isLoading: true});
+
+      //force button to animate for minimum of 800ms (cached data returns quickly!)
+      setTimeout(() => {  
+        this.fetchWeatherAll(); 
+      }, 800);  
     };
     
      toggleSettings = () => {  
