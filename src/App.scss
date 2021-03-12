@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playball&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Maiden+Orange&display=swap");
 $darkShade: rgba(0, 0, 0, 0.3);
-$lightShade: rgba(0, 0, 0, 0.12);
+$lightShade: rgba(0, 0, 0, 0.16);
 // $alertShade: rgba(255, 255, 255, 0.1);
 // $darkShade: rgba(255, 255, 255, 0.3);
 // $lightShade: rgba(255, 255, 255, 0.15);
 $forecastRow: rgba(255, 255, 255, 0.1);
 $fonts: white;
 $borders: rgba(255, 255, 255, 0.2);
-$alertRow: rgba(255, 255, 255, 0.15);
+$alertRow: rgba(255, 255, 255, 0.1);
 $alertFont: #e25353;
 // $alertFont: #db999b;
 // $alertBorder: #ea5d5d;
@@ -30,6 +30,14 @@ body {
 // container {
 //   min-height: 100%;
 // }
+.background-shape {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -15%;
+  width: 100%;
+}
 
 body {
   background: #3a7bd5; /* fallback for old browsers */
@@ -51,6 +59,7 @@ body {
   color: $fonts;
   font-family: "Lato", sans-serif;
   font-weight: 300;
+  //   background-image: url('data:image/svg+xml,%3Csvg mlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Cdefs%3E%3ClinearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" stop-color="%23a42f3b" stop-opacity=".5"/%3E%3Cstop offset="100%25" stop-color="%23222222" stop-opacity="0"/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d="M28 0 L28 0 L28 0 L28 0 L28 0 L28 0 L28 0 C18 22 48 36 26 64 L64 64 L64 0 Z" fill="url(%23grad)" /%3E%3C/svg%3E');
 }
 
 .container-sm {
